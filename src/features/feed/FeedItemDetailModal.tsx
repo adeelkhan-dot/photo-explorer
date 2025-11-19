@@ -1,10 +1,11 @@
 // src/features/feed/FeedItemDetailModal.tsx
-import  { useEffect, useState } from 'react';
+import { useEffect, useState } from 'react';
 import { View, Text, FlatList, TouchableOpacity, StyleSheet, Dimensions } from 'react-native';
 import { useRoute, useNavigation } from '@react-navigation/native';
 import { PicsumPhoto } from './types';
 import Animated, { SlideInUp } from 'react-native-reanimated';
 import { Image } from 'expo-image';
+import { fetchCommentsForPhoto } from '../../api/api';
 
 const { width } = Dimensions.get('window');
 
@@ -16,7 +17,14 @@ export default function FeedItemDetailModal() {
   const [comments, setComments] = useState<any[]>([]);
 
   useEffect(() => {
-    setPicsumPhoto(photo);
+
+    (async () => {
+      setPicsumPhoto(photo);
+      if (photo) {
+        const c = await fetchCommentsForPhoto(Number(photo.id));
+        setComments(c);
+      }
+    })();
   }, [photo]);
 
   if (!picsumPhoto) return <View style={{ flex: 1, justifyContent: 'center', alignItems: 'center' }}><Text>Loading...</Text></View>;

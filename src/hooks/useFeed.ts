@@ -1,5 +1,5 @@
 import { useState, useEffect } from 'react';
-import { PicsumPhoto } from './types';
+import { PicsumPhoto } from '../features/feed/types';
 import axios from 'axios';
 
 const cache = new Map<string, any>();

@@ -17,7 +17,7 @@ export default function FeedStack() {
       <Stack.Screen 
         name="FeedDetailModal" 
         component={FeedItemDetailModal} 
-        options={{ presentation: 'modal', headerShown: false }}
+        options={{ presentation: 'modal', headerShown: false,contentStyle: { backgroundColor: 'black' } }}
       />
     </Stack.Navigator>
   );
