@@ -1,10 +1,10 @@
-// App.tsx
 import 'react-native-gesture-handler';
-import React from 'react';
 import { NavigationContainer } from '@react-navigation/native';
 import { createBottomTabNavigator } from '@react-navigation/bottom-tabs';
 import { createNativeStackNavigator } from '@react-navigation/native-stack';
 import { View, Text, StyleSheet } from 'react-native';
+import FeedStack from './features/feed/FeedStack';
+import { FavoritesProvider } from './context/FavoritesContext';
 
 
 const Tab = createBottomTabNavigator();
@@ -19,6 +19,7 @@ const Card = ({ text }: { text: string }) => (
 
 export default function App() {
   return (
+    <FavoritesProvider>
     <NavigationContainer>
       <RootStack.Navigator>
         <RootStack.Screen name="Main" options={{ headerShown: false }}>
@@ -36,7 +37,7 @@ export default function App() {
               }
             }}
             >
-              <Tab.Screen name="Feed" component={() => <Card text="FeedStack" />} />
+              <Tab.Screen name="Feed" component={FeedStack} />
               <Tab.Screen name="Search" component={() => <Card text="SearchStack" />} />
               <Tab.Screen name="Camera" component={() => <Card text="CameraStack" />} />
               <Tab.Screen name="Favorites" component={() => <Card text="FavoritesStack" />} />
@@ -44,9 +45,9 @@ export default function App() {
             </Tab.Navigator>
           )}
         </RootStack.Screen>
-
       </RootStack.Navigator>
     </NavigationContainer>
+    </FavoritesProvider>
   );
 }
 
