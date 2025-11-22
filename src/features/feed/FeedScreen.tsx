@@ -3,7 +3,7 @@ import { FlatList, RefreshControl, Dimensions, View, Text } from 'react-native';
 import Animated, { FadeInUp, Layout, LinearTransition } from 'react-native-reanimated';
 import { useNavigation } from '@react-navigation/native';
 import FeedItem from './FeedItems';
-import { useFeed } from './useFeed';
+import { useFeed } from '../../hooks/useFeed';
 
 const { width } = Dimensions.get('window');
 

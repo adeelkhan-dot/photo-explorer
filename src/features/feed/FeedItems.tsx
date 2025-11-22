@@ -3,7 +3,7 @@ import { TouchableOpacity, View, StyleSheet } from 'react-native';
 import { Image } from 'expo-image';
 import { PicsumPhoto } from './types';
 import Animated, { useSharedValue, withSpring, useAnimatedStyle } from 'react-native-reanimated';
-import { useFavorites } from '../../context/FavoritesContext';
+import { useFavorites } from '../../hooks/useFavorites';
 import { Ionicons } from '@expo/vector-icons';
 
 type Props = { photo: PicsumPhoto; size: number; onPress: () => void };

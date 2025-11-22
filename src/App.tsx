@@ -5,6 +5,8 @@ import { createNativeStackNavigator } from '@react-navigation/native-stack';
 import { View, Text, StyleSheet } from 'react-native';
 import FeedStack from './features/feed/FeedStack';
 import { FavoritesProvider } from './context/FavoritesContext';
+import FavoritesStack from './features/favorites/FavoritesStack';
+import ProfileStack from './features/profile/profileStack';
 
 
 const Tab = createBottomTabNavigator();
@@ -20,33 +22,33 @@ const Card = ({ text }: { text: string }) => (
 export default function App() {
   return (
     <FavoritesProvider>
-    <NavigationContainer>
-      <RootStack.Navigator>
-        <RootStack.Screen name="Main" options={{ headerShown: false }}>
-          {() => (
-            <Tab.Navigator screenOptions={{
-              headerShown: true,
-              tabBarIcon: () => null,
-              tabBarStyle: {
-                borderTopWidth: 0,
+      <NavigationContainer>
+        <RootStack.Navigator>
+          <RootStack.Screen name="Main" options={{ headerShown: false }}>
+            {() => (
+              <Tab.Navigator screenOptions={{
+                headerShown: true,
+                tabBarIcon: () => null,
+                tabBarStyle: {
+                  borderTopWidth: 0,
 
-              },
-              tabBarLabelStyle: {
-                fontSize: 14,
-                textAlign: 'center',  
-              }
-            }}
-            >
-              <Tab.Screen name="Feed" component={FeedStack} />
-              <Tab.Screen name="Search" component={() => <Card text="SearchStack" />} />
-              <Tab.Screen name="Camera" component={() => <Card text="CameraStack" />} />
-              <Tab.Screen name="Favorites" component={() => <Card text="FavoritesStack" />} />
-              <Tab.Screen name="Profile" component={() => <Card text="ProfileStack" />} />
-            </Tab.Navigator>
-          )}
-        </RootStack.Screen>
-      </RootStack.Navigator>
-    </NavigationContainer>
+                },
+                tabBarLabelStyle: {
+                  fontSize: 14,
+                  textAlign: 'center',
+                }
+              }}
+              >
+                <Tab.Screen name="Feed" component={FeedStack} />
+                <Tab.Screen name="Search" component={() => <Card text="SearchStack" />} />
+                <Tab.Screen name="Camera" component={() => <Card text="CameraStack" />} />
+                <Tab.Screen name="Favorites" component={FavoritesStack} />
+                <Tab.Screen name="Profile" component={ProfileStack} />
+              </Tab.Navigator>
+            )}
+          </RootStack.Screen>
+        </RootStack.Navigator>
+      </NavigationContainer>
     </FavoritesProvider>
   );
 }
