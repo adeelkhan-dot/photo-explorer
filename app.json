@@ -23,13 +23,33 @@
       },
       "edgeToEdgeEnabled": true,
       "predictiveBackGestureEnabled": false,
-      "package": "com.adeeldilmir.PhotoExplorer"
+      "package": "com.adeeldilmir.PhotoExplorer",
+      "permissions": [
+        "android.permission.CAMERA"
+      ]
     },
     "web": {
       "favicon": "./assets/favicon.png"
     },
     "plugins": [
-      "expo-asset"
-    ]
+      "expo-asset",
+      [
+        "expo-camera",
+        {
+          "cameraPermission": "Allow PhotoExplorer to access your camera to take photos."
+        }
+      ],
+      [
+        "expo-image-picker",
+        {
+          "photosPermission": "Allow PhotoExplorer to access your photos to select images from your gallery."
+        }
+      ]
+    ],
+    "extra": {
+      "eas": {
+        "projectId": "30c716bd-4b4c-4595-b194-f0c90008d296"
+      }
+    }
   }
 }
