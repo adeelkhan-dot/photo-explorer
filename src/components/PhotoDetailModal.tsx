@@ -57,12 +57,6 @@ export default function PhotoDetailModal() {
   );
 }
 
-// const styles = StyleSheet.create({
-//   container: { flex: 1, backgroundColor: '#000', padding: 16 },
-//   comment: { paddingVertical: 6, borderBottomColor: '#333', borderBottomWidth: 1 },
-//   commentName: { color: '#fff', fontWeight: '600' },
-//   commentBody: { color: '#ddd' },
-// });
 const styles = StyleSheet.create({
   container: { 
     flex: 1, 

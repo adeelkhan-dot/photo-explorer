@@ -7,7 +7,7 @@ interface SafeAreaViewProps extends ViewProps {
   edges?: ('top' | 'bottom' | 'left' | 'right')[];
 }
 
-const ThemeSafeAreaView: React.FC<SafeAreaViewProps> = ({ 
+const ThemeSafeAreaViewContext: React.FC<SafeAreaViewProps> = ({ 
   style, 
   children, 
   edges = ['top', 'bottom'],
@@ -42,5 +42,5 @@ const ThemeSafeAreaView: React.FC<SafeAreaViewProps> = ({
   );
 };
 
-export default ThemeSafeAreaView;
+export default ThemeSafeAreaViewContext;
 

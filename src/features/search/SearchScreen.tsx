@@ -69,14 +69,6 @@ export default function SearchScreen() {
         </Animated.View>
       )}
 
-      {/* Loading State */}
-      {/* {loading && results.length === 0 && (
-        <View style={styles.centerContainer}>
-          <ActivityIndicator size="large" color="#666" />
-          <Text style={styles.loadingText}>Loading photos...</Text>
-        </View>
-      )} */}
-
       {/* Empty Results */}
       {!loading && !error && results.length === 0 && query.trim() && (
         <Animated.View entering={FadeIn} style={styles.centerContainer}>

@@ -2,14 +2,14 @@ import 'react-native-gesture-handler';
 import { NavigationContainer } from '@react-navigation/native';
 import { createBottomTabNavigator } from '@react-navigation/bottom-tabs';
 import { createNativeStackNavigator } from '@react-navigation/native-stack';
-import { SafeAreaProvider, useSafeAreaInsets } from 'react-native-safe-area-context';
+import { SafeAreaProvider} from 'react-native-safe-area-context';
 import FeedStack from './features/feed/FeedStack';
 import { FavoritesProvider } from './context/FavoritesContext';
 import FavoritesStack from './features/favorites/FavoritesStack';
 import ProfileStack from './features/profile/profileStack';
 import SearchStack from './features/search/searchStack';
 import CameraStack from './features/camera/CameraStack';
-import ThemeSafeAreaView from './components/ThemeSafeAreaView';
+import ThemeSafeAreaViewContext from './context/ThemeSafeAreaViewContext';
 
 
 const Tab = createBottomTabNavigator();
@@ -17,7 +17,6 @@ const RootStack = createNativeStackNavigator();
 
 
 function TabNavigatorWithSafeArea() {
-  const insets = useSafeAreaInsets();
   return (
     <Tab.Navigator screenOptions={{
       headerShown: true,
@@ -65,7 +64,7 @@ function TabNavigatorWithSafeArea() {
 export default function App() {
   return (
     <SafeAreaProvider>
-      <ThemeSafeAreaView edges={['bottom']}>
+      <ThemeSafeAreaViewContext edges={['bottom']}>
         <FavoritesProvider>
           <NavigationContainer>
             <RootStack.Navigator>
@@ -75,7 +74,7 @@ export default function App() {
             </RootStack.Navigator>
           </NavigationContainer>
         </FavoritesProvider>
-      </ThemeSafeAreaView>
+      </ThemeSafeAreaViewContext>
     </SafeAreaProvider>
   );
 }

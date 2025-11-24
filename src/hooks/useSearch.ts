@@ -21,7 +21,6 @@ export function useSearch() {
     try {
       setLoading(true);
       setError(null);
-      // Fetch more photos for better search coverage
       const photos = await fetchPicsum(1, 50);
       setAllPhotos(photos);
       setResults(photos);
