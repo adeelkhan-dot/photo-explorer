@@ -33,3 +33,8 @@ export async function fetchCommentsForPhoto(photoId: number) {
   cache.set(key, res.data);
   return res.data;
 }
+
+export async function fetchUserApi() {
+    const response = await jsonplaceholder.get('/users/1');
+    return response.data;
+}
