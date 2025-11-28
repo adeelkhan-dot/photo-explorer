@@ -36,7 +36,7 @@ export default function FeedItem({ photo, size, onPress }: Props) {
   return (
     <TouchableOpacity onPress={onPress} style={{ margin: 4 }}>
       <Image source={uri} style={{ width: size, height: size, borderRadius: 8 }} contentFit="cover" />
-      <Animated.View style={[styles.heartContainer, animatedStyle]}>
+      <Animated.View style={[styles.heartContainer, animatedStyle]} testID="heart-animation">
         <TouchableOpacity onPress={toggleLike}>
           <Ionicons name={liked ? 'heart' : 'heart-outline'} size={24} color={liked ? 'red' : 'white'} />
         </TouchableOpacity>
