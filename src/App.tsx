@@ -13,6 +13,7 @@ import ThemeSafeAreaViewContext from './context/ThemeSafeAreaViewContext';
 import {
   Text,
 } from 'react-native';
+import AdvanceStack from './features/advacne/AdvanceStack';
 
 
 const Tab = createBottomTabNavigator();
@@ -77,6 +78,7 @@ function TabNavigatorWithSafeArea() {
       <Tab.Screen name="Camera" component={CameraStack} />
       <Tab.Screen name="Favorites" component={FavoritesStack} />
       <Tab.Screen name="Profile" component={ProfileStack} />
+      <Tab.Screen name="Advance" component={AdvanceStack} />
     </Tab.Navigator>
   );
 }
