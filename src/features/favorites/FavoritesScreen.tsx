@@ -4,6 +4,7 @@ import FavoriteItem from "./FavoriteItem";
 import { useFavorites } from "../../hooks/useFavorites";
 import Animated, { FadeIn } from "react-native-reanimated";
 import { useNavigation } from "@react-navigation/native";
+import { SCREEN_NAMES } from "../../constants/screen";
 
 export default function FavoritesScreen() {
   const navigation = useNavigation<any>();
@@ -27,7 +28,7 @@ export default function FavoritesScreen() {
       url: item.uri,
       download_url: item.uri,
     };
-    navigation.navigate("PhotoDetailModal", { photo });
+    navigation.navigate(SCREEN_NAMES.PHOTO_DETAIL_MODAL, { photo });
   };
 
   if (!loading && favorites.length === 0)

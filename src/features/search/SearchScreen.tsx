@@ -13,7 +13,8 @@ import SearchResultItem from "./SearchResultItem";
 import { useSearch } from "../../hooks/useSearch";
 import Animated, { FadeIn } from "react-native-reanimated";
 import { useNavigation } from "@react-navigation/native";
-import { PicsumPhoto } from "../../api/api";
+import { PicsumPhoto } from "../../types/types";
+import { SCREEN_NAMES } from "../../constants/screen";
 
 export default function SearchScreen() {
   const navigation = useNavigation<any>();
@@ -24,7 +25,7 @@ export default function SearchScreen() {
   }, [refetch]);
 
   const openPreview = useCallback((item: PicsumPhoto) => {
-    navigation.navigate("PhotoDetailModal", { photo: item });
+    navigation.navigate(SCREEN_NAMES.PHOTO_DETAIL_MODAL, { photo: item });
   }, [navigation]);
 
   const renderItem = useCallback(({ item, index }: { item: PicsumPhoto; index: number }) => (
