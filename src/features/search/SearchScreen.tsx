@@ -13,16 +13,18 @@ import SearchResultItem from "./SearchResultItem";
 import { useSearch } from "../../hooks/useSearch";
 import Animated, { FadeIn } from "react-native-reanimated";
 import { useNavigation } from "@react-navigation/native";
-import { PicsumPhoto } from "../../types/types";
+import { PicsumPhoto, RootStackParamList } from "../../types/types";
 import { SCREEN_NAMES } from "../../constants/screen";
+import { NativeStackNavigationProp } from "@react-navigation/native-stack";
+
+type SearchScreenNavProp = NativeStackNavigationProp<
+  RootStackParamList,
+  "Search"
+>;
 
 export default function SearchScreen() {
-  const navigation = useNavigation<any>();
+  const navigation = useNavigation<SearchScreenNavProp>();
   const { query, search, results, loading, searching, error, refetch } = useSearch();
-
-  const onRefresh = useCallback(async () => {
-    await refetch();
-  }, [refetch]);
 
   const openPreview = useCallback((item: PicsumPhoto) => {
     navigation.navigate(SCREEN_NAMES.PHOTO_DETAIL_MODAL, { photo: item });
@@ -32,7 +34,7 @@ export default function SearchScreen() {
     <SearchResultItem
       item={item}
       index={index}
-      onPress={() => openPreview(item)}
+      onPress={openPreview}
     />
   ), [openPreview]);
 
@@ -70,22 +72,14 @@ export default function SearchScreen() {
         </Animated.View>
       )}
 
-      {/* Empty Results */}
-      {!loading && !error && results.length === 0 && query.trim() && (
+      {/* Empty Results / Empty State - No Search */}
+      {!loading && !error && results.length === 0 && (
         <Animated.View entering={FadeIn} style={styles.centerContainer}>
-          <Text style={styles.emptyText}>No results found</Text>
+          <Text style={styles.emptyText}>
+            {query.trim()?"No results found":"Start searching"}
+            </Text>
           <Text style={styles.emptySubtext}>
-            Try searching with a different term
-          </Text>
-        </Animated.View>
-      )}
-
-      {/* Empty State - No Search */}
-      {!loading && !error && results.length === 0 && !query.trim() && (
-        <Animated.View entering={FadeIn} style={styles.centerContainer}>
-          <Text style={styles.emptyText}>Start searching</Text>
-          <Text style={styles.emptySubtext}>
-            Search by author name or photo ID
+            {query.trim()?"Try searching with a different term":"Search by author name or photo ID"}
           </Text>
         </Animated.View>
       )}
@@ -96,7 +90,7 @@ export default function SearchScreen() {
         keyExtractor={keyExtractor}
         renderItem={renderItem}
         refreshControl={
-          <RefreshControl refreshing={loading} onRefresh={onRefresh} />
+          <RefreshControl refreshing={loading} onRefresh={refetch} />
         }
         contentContainerStyle={[
           styles.listContent,

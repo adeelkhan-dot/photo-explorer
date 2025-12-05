@@ -14,3 +14,23 @@ export type Comment = {
   email: string;
   body: string;
 };
+
+export type RootStackParamList = {
+  Main: undefined;
+
+  // Tabs
+  Feed: undefined;
+  Search: undefined;
+  Camera: undefined;
+  Favorites: undefined;
+  Profile: undefined;
+
+  // Modals
+  PhotoDetailModal: { photo: PicsumPhoto };
+  FeedDetailModal: undefined;
+};
+export type FavoriteItemType = {
+  id: string;           
+  uri: string;         
+  author?: string;  
+};

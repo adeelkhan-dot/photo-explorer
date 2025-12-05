@@ -25,9 +25,10 @@ export default function FeedItem({ photo, size, onPress }: Props) {
     setLiked(newLiked);
     if (newLiked) {
       addFavorite({ id: photo.id, uri: photo.download_url, author: photo.author, createdAt: new Date().toISOString() });
-    } else {
+      return;
+    } 
       removeFavorite(photo.id);
-    }
+    
   };
 
   const animatedStyle = useAnimatedStyle(() => ({ transform: [{ scale: scale.value }] }));
