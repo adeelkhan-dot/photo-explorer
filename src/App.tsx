@@ -22,7 +22,7 @@ const renderTabLabel = (routeName: string, focused: boolean) => (
   <Text
     style={[
       styles.tabLabel,
-      { color: focused ? '#007bff' : 'black', fontWeight: focused ? 'bold' : 'normal' },
+      focused && styles.focusedTabLabel,
     ]}
   >
     {routeName}
@@ -91,5 +91,11 @@ const styles = StyleSheet.create({
     margin: 0,
     lineHeight: 14,
     padding: 0,
+    color: 'black',  
+    fontWeight: 'normal',
+  },
+  focusedTabLabel: {
+    color: '#007bff',
+    fontWeight: 'bold',
   },
 });
