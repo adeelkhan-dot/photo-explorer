@@ -1,11 +1,12 @@
 import React from 'react';
 import { createNativeStackNavigator } from '@react-navigation/native-stack';
 import FeedScreen from './FeedScreen';
-import FeedItemDetailModal from './FeedItemDetailModal';
+import PhotoDetailModal from '../../components/PhotoDetailModal';
+import { SCREEN_NAMES } from '../../constants/screen';
 
 export type FeedStackParamList = {
   FeedMain: undefined;
-  FeedDetailModal: { photoId: string };
+  FeedDetailModal: { photo: any };
 };
 
 const Stack = createNativeStackNavigator<FeedStackParamList>();
@@ -13,11 +14,11 @@ const Stack = createNativeStackNavigator<FeedStackParamList>();
 export default function FeedStack() {
   return (
     <Stack.Navigator>
-      <Stack.Screen name="FeedMain" component={FeedScreen} options={{ title: 'Feed',headerShown:false }} />
+      <Stack.Screen name={SCREEN_NAMES.FEED_MAIN} component={FeedScreen} options={{ title: 'Feed',headerShown:false }} />
       <Stack.Screen 
-        name="FeedDetailModal" 
-        component={FeedItemDetailModal} 
-        options={{ presentation: 'modal', headerShown: false,contentStyle: { backgroundColor: 'black' } }}
+        name={SCREEN_NAMES.FEED_DETAIL_MODAL} 
+        component={PhotoDetailModal} 
+        options={{ presentation: 'modal', headerShown: false,contentStyle: { backgroundColor: 'white' } }}
       />
     </Stack.Navigator>
   );

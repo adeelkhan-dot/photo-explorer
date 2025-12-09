@@ -3,9 +3,15 @@ import { View, Text, FlatList, RefreshControl } from "react-native";
 import FavoriteItem from "./FavoriteItem";
 import { useFavorites } from "../../hooks/useFavorites";
 import Animated, { FadeIn } from "react-native-reanimated";
+import { useNavigation } from "@react-navigation/native";
+import { SCREEN_NAMES } from "../../constants/screen";
+import { FavoriteItemType, RootStackParamList } from "../../types/types";
+import { NativeStackNavigationProp } from "@react-navigation/native-stack";
 
+type Nav = NativeStackNavigationProp<RootStackParamList>;
 
 export default function FavoritesScreen() {
+  const navigation = useNavigation<Nav>();
   const { favorites, loading, removeFavorite, loadFavorites } = useFavorites();
 
   const [refreshing, setRefreshing] = useState(false);
@@ -16,9 +22,18 @@ export default function FavoritesScreen() {
     await loadFavorites();
     setRefreshing(false);
   };
+  
 
-  const openPreview = (item:any) => {
-console.log('Preview')
+  const openPreview = (item: FavoriteItemType) => {
+    const photo = {
+      id: item.id,
+      author: item?.author || "Unknown",
+      width: 0,
+      height: 0,
+      url: item.uri,
+      download_url: item.uri,
+    };
+    navigation.navigate(SCREEN_NAMES.PHOTO_DETAIL_MODAL, { photo });
   };
 
   if (!loading && favorites.length === 0)

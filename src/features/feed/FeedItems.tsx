@@ -1,4 +1,4 @@
-import React, { useState } from 'react';
+import React, { useState, useEffect } from 'react';
 import { TouchableOpacity, View, StyleSheet } from 'react-native';
 import { Image } from 'expo-image';
 import { PicsumPhoto } from './types';
@@ -9,16 +9,21 @@ import { Ionicons } from '@expo/vector-icons';
 type Props = { photo: PicsumPhoto; size: number; onPress: () => void };
 
 export default function FeedItem({ photo, size, onPress }: Props) {
-  const { addFavorite, removeFavorite, isFavorite } = useFavorites();
-  const [liked, setLiked] = useState(isFavorite(photo.id));
+  const { addFavorite, removeFavorite, isFavorite, favorites } = useFavorites();
+  const liked =isFavorite(photo.id);
   const scale = useSharedValue(1);
+
 
   const toggleLike = () => {
     scale.value = 1.5;
     scale.value = withSpring(1, { damping: 3, stiffness: 200 });
-    setLiked(prev => !prev);
-    if (!liked) addFavorite({ id: photo.id, uri: photo.download_url, author: photo.author, createdAt: new Date().toISOString() });
-    else removeFavorite(photo.id);
+    const newLiked = !liked;
+    if (newLiked) {
+      addFavorite({ id: photo.id, uri: photo.download_url, author: photo.author, createdAt: new Date().toISOString() });
+      return;
+    } 
+      removeFavorite(photo.id);
+    
   };
 
   const animatedStyle = useAnimatedStyle(() => ({ transform: [{ scale: scale.value }] }));

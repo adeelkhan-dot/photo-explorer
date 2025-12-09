@@ -1,5 +1,6 @@
 import { useState } from 'react';
 import AsyncStorage from '@react-native-async-storage/async-storage';
+import { fetchUserApi } from '../api/api';
 
 export function useProfile() {
   const [user, setUser] = useState(null);
@@ -14,9 +15,8 @@ export function useProfile() {
       const avatarStored = await AsyncStorage.getItem('profile_avatar');
       if (avatarStored) setAvatar(avatarStored);
 
-      const res = await fetch('https://jsonplaceholder.typicode.com/users/1');
-      const json = await res.json();
-      setUser(json);
+      const res = await fetchUserApi();
+      setUser(res);
     } catch (e) {
       setError(true);
     } finally {
