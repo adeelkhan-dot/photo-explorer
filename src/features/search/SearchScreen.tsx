@@ -96,7 +96,6 @@ export default function SearchScreen() {
           styles.listContent,
           results.length === 0 && styles.listContentEmpty,
         ]}
-        ListEmptyComponent={null}
       />
     </View>
   );

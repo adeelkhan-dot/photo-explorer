@@ -6,6 +6,8 @@ import * as FileSystem from 'expo-file-system/legacy';
 import { useFavorites } from '../../../hooks/useFavorites';
 import { useNavigation } from '@react-navigation/native';
 import { SCREEN_NAMES } from '../../../constants/screen';
+import { NativeStackNavigationProp } from '@react-navigation/native-stack';
+import { RootStackParamList } from '../../../types/types';
 
 export type CapturedPhoto = {
   id: string;
@@ -13,6 +15,7 @@ export type CapturedPhoto = {
   author: string;
   createdAt: string;
 };
+type CameraNavProp = NativeStackNavigationProp<RootStackParamList, 'Camera'>;
 
 export default function useCamera() {
   const [facing, setFacing] = useState<CameraType>('back');
@@ -24,7 +27,7 @@ export default function useCamera() {
   const [activeTab, setActiveTab] = useState<'camera' | 'gallery'>('camera');
   const cameraRef = useRef<CameraView>(null);
   const { addFavorite } = useFavorites();
-  const navigation = useNavigation<any>();
+  const navigation = useNavigation<CameraNavProp>();
 
   useEffect(() => {
     if (!cameraPermission?.granted) requestCameraPermission();
@@ -79,7 +82,7 @@ export default function useCamera() {
 
         Alert.alert('Success', 'Photo captured and added to favorites!');
       }
-    } catch (error: any) {
+    } catch (error) {
       console.error('Error taking photo:', error);
       Alert.alert('Error', 'Failed to capture photo.');
     } finally {

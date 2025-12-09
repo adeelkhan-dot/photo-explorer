@@ -2,10 +2,11 @@ import { createNativeStackNavigator } from '@react-navigation/native-stack';
 import CameraScreen from './CameraScreen';
 import PhotoDetailModal from '../../components/PhotoDetailModal';
 import { SCREEN_NAMES } from '../../constants/screen';
+import { CapturedPhoto } from './hooks/useCamera';
 
 export type CameraStackParamList = {
   CameraMain: undefined;
-  PhotoDetailModal: { photo: any };
+  PhotoDetailModal: { photo: CapturedPhoto };
 };
 
 const Stack = createNativeStackNavigator<CameraStackParamList>();
