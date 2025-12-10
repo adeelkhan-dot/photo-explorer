@@ -31,16 +31,16 @@ export default function AdvanceStack() {
       <Stack.Screen
         name="AdvanceScreen"
         component={AdvanceScreen}
-        options={{ title: "Advance Concepts" }}
+        options={{ title: "Advance Concepts",headerShown: false }}
       />
       <Stack.Screen name="ParallelModals" component={ParallelModals} />
       <Stack.Screen name="CardAnimations" component={CardAnimations} />
-   <Stack.Screen name="ActionSheet" component={ActionSheet} />
-     <Stack.Screen name="Loader" component={Loader} />
-     <Stack.Screen name="Shimmer" component={Shimmer} />
-          <Stack.Screen name="InputModal" component={InputModal} />
+      <Stack.Screen name="ActionSheet" component={ActionSheet} />
+      <Stack.Screen name="Loader" component={Loader} />
+      <Stack.Screen name="Shimmer" component={Shimmer} />
+      <Stack.Screen name="InputModal" component={InputModal} />
       <Stack.Screen name="KeyboardAware" component={KeyboardAware} />
-       <Stack.Screen name="KeyboardActionTab" component={KeyboardActionTab} />
+      <Stack.Screen name="KeyboardActionTab" component={KeyboardActionTab} />
     </Stack.Navigator>
   );
 }

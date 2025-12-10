@@ -2,12 +2,12 @@ import React from "react";
 import { View, TouchableOpacity, Text, StyleSheet } from "react-native";
 import Animated, { FadeInUp } from "react-native-reanimated";
 import { Image } from "expo-image";
-import { PicsumPhoto } from "../../api/api";
+import { PicsumPhoto } from "../../types/types";
 
 type Props = {
   item: PicsumPhoto;
   index: number;
-  onPress: () => void;
+  onPress: (item: PicsumPhoto) => void;
 };
 
 function SearchResultItem({ item, index, onPress }: Props) {
@@ -16,7 +16,7 @@ function SearchResultItem({ item, index, onPress }: Props) {
       entering={FadeInUp.delay(index * 60).duration(500)}
       style={styles.container}
     >
-      <TouchableOpacity onPress={onPress} activeOpacity={0.9}>
+      <TouchableOpacity onPress={()=>onPress(item)} activeOpacity={0.9}>
         <Image
           source={{ uri: item.download_url }}
           style={styles.image}
