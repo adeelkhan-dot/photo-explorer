@@ -1,6 +1,7 @@
 import { StyleSheet } from 'react-native';
 import { View, TouchableOpacity, Text } from 'react-native';
 import { Ionicons } from '@expo/vector-icons';
+import { COLORS } from '../../../constants/colors';
 
 interface CameraTabsProps {
   activeTab: 'camera' | 'gallery';
@@ -14,7 +15,7 @@ export default function CameraTabs({ activeTab, setActiveTab }: CameraTabsProps)
         style={[styles.tab, activeTab === 'camera' && styles.tabActive]}
         onPress={() => setActiveTab('camera')}
       >
-        <Ionicons name="camera" size={20} color={activeTab === 'camera' ? '#007AFF' : '#999'} />
+        <Ionicons name="camera" size={20} color={activeTab === 'camera' ? COLORS.PRIMARY_IOS : COLORS.TEXT_GRAY_LIGHTER} />
         <Text style={[styles.tabText, activeTab === 'camera' && styles.tabTextActive]}>Camera</Text>
       </TouchableOpacity>
 
@@ -22,7 +23,7 @@ export default function CameraTabs({ activeTab, setActiveTab }: CameraTabsProps)
         style={[styles.tab, activeTab === 'gallery' && styles.tabActive]}
         onPress={() => setActiveTab('gallery')}
       >
-        <Ionicons name="images" size={20} color={activeTab === 'gallery' ? '#007AFF' : '#999'} />
+        <Ionicons name="images" size={20} color={activeTab === 'gallery' ?COLORS.PRIMARY_IOS : COLORS.TEXT_GRAY_LIGHTER} />
         <Text style={[styles.tabText, activeTab === 'gallery' && styles.tabTextActive]}>Gallery</Text>
       </TouchableOpacity>
     </View>
@@ -30,9 +31,9 @@ export default function CameraTabs({ activeTab, setActiveTab }: CameraTabsProps)
 }
 
 const styles = StyleSheet.create({
-  tabContainer: { flexDirection: 'row', backgroundColor: '#1a1a1a', padding: 8, paddingHorizontal: 16, gap: 8 },
+  tabContainer: { flexDirection: 'row', backgroundColor: COLORS.BACKGROUND_DARK, padding: 8, paddingHorizontal: 16, gap: 8 },
   tab: { flex: 1, flexDirection: 'row', alignItems: 'center', justifyContent: 'center', paddingVertical: 12, borderRadius: 8, gap: 6 },
-  tabActive: { backgroundColor: '#2a2a2a' },
-  tabText: { color: '#999', fontSize: 14, fontWeight: '500' },
-  tabTextActive: { color: '#007AFF' },
+  tabActive: { backgroundColor: COLORS.BACKGROUND_DARK_SECONDARY },
+  tabText: { color: COLORS.TEXT_GRAY_LIGHTER, fontSize: 14, fontWeight: '500' },
+  tabTextActive: { color: COLORS.PRIMARY_IOS},
 });

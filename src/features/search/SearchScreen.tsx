@@ -16,6 +16,7 @@ import { useNavigation } from "@react-navigation/native";
 import { PicsumPhoto, RootStackParamList } from "../../types/types";
 import { SCREEN_NAMES } from "../../constants/screen";
 import { NativeStackNavigationProp } from "@react-navigation/native-stack";
+import { COLORS } from "../../constants/colors";
 
 type SearchScreenNavProp = NativeStackNavigationProp<
   RootStackParamList,
@@ -48,7 +49,7 @@ export default function SearchScreen() {
           value={query}
           onChangeText={search}
           placeholder="Search by author or ID..."
-          placeholderTextColor="#999"
+          placeholderTextColor={COLORS.TEXT_GRAY_LIGHTER}
           style={styles.searchInput}
           autoCapitalize="none"
           autoCorrect={false}
@@ -56,7 +57,7 @@ export default function SearchScreen() {
         {searching && (
           <ActivityIndicator
             size="small"
-            color="#666"
+            color={COLORS.TEXT_GRAY}
             style={styles.searchLoader}
           />
         )}
@@ -105,14 +106,14 @@ const styles = StyleSheet.create({
   container: {
     flex: 1,
     padding: 16,
-    backgroundColor: "#fff",
+    backgroundColor: COLORS.WHITE,
   },
   searchContainer: {
     position: "relative",
     marginBottom: 20,
   },
   searchInput: {
-    backgroundColor: "#f0f0f0",
+    backgroundColor: COLORS.BACKGROUND_GRAY,
     padding: 14,
     borderRadius: 12,
     fontSize: 16,
@@ -125,25 +126,25 @@ const styles = StyleSheet.create({
   },
   errorContainer: {
     padding: 16,
-    backgroundColor: "#fee",
+    backgroundColor:COLORS.BACKGROUND_ERROR,
     borderRadius: 12,
     marginBottom: 16,
     alignItems: "center",
   },
   errorText: {
     textAlign: "center",
-    color: "#c00",
+    color: COLORS.ERROR,
     marginBottom: 12,
     fontSize: 14,
   },
   retryButton: {
-    backgroundColor: "#c00",
+    backgroundColor: COLORS.ERROR,
     paddingHorizontal: 20,
     paddingVertical: 8,
     borderRadius: 8,
   },
   retryButtonText: {
-    color: "#fff",
+    color: COLORS.WHITE,
     fontWeight: "600",
   },
   centerContainer: {
@@ -154,20 +155,20 @@ const styles = StyleSheet.create({
   },
   loadingText: {
     marginTop: 12,
-    color: "#666",
+    color: COLORS.TEXT_GRAY,
     fontSize: 14,
   },
   emptyText: {
     textAlign: "center",
     fontSize: 18,
     fontWeight: "600",
-    color: "#333",
+    color:COLORS.TEXT_DARK,
     marginBottom: 8,
   },
   emptySubtext: {
     textAlign: "center",
     fontSize: 14,
-    color: "#666",
+    color:COLORS.TEXT_GRAY,
   },
   listContent: {
     paddingBottom: 40,

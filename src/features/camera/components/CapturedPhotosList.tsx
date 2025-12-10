@@ -3,6 +3,7 @@ import { StyleSheet } from 'react-native';
 import { ScrollView, TouchableOpacity } from 'react-native';
 import Animated, { FadeInDown, SlideInUp } from 'react-native-reanimated';
 import { CapturedPhoto } from '../hooks/useCamera';
+import { COLORS } from '../../../constants/colors';
 
 interface CapturedPhotosListProps {
   capturedPhotos: CapturedPhoto[];
@@ -28,8 +29,8 @@ export default function CapturedPhotosList({ capturedPhotos, openPhotoDetail }: 
 }
 
 const styles = StyleSheet.create({
-  photosSection: { backgroundColor: '#1a1a1a', paddingTop: 5, paddingBottom: 50, borderTopWidth: 1, borderTopColor: '#333' },
+  photosSection: { backgroundColor: COLORS.BACKGROUND_DARK, paddingTop: 5, paddingBottom: 50, borderTopWidth: 1, borderTopColor:COLORS.TEXT_DARK },
   photosScroll: { paddingHorizontal: 16, gap: 12 },
-  photoThumbnail: { width: 80, height: 80, borderRadius: 8, overflow: 'hidden', backgroundColor: '#2a2a2a' },
+  photoThumbnail: { width: 80, height: 80, borderRadius: 8, overflow: 'hidden', backgroundColor: COLORS.BACKGROUND_DARK_SECONDARY },
   thumbnailImage: { width: '100%', height: '100%' },
 });

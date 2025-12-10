@@ -1,0 +1,35 @@
+export const COLORS = {
+  PRIMARY: '#007bff',
+  PRIMARY_IOS: '#007AFF',
+
+  BACKGROUND: '#ffffff',
+  BACKGROUND_DARK: '#1a1a1a',
+  BACKGROUND_DARK_SECONDARY: '#2a2a2a',
+  BACKGROUND_GRAY: '#f0f0f0',
+  BACKGROUND_ERROR: '#fee',
+
+  TEXT_PRIMARY: '#000000',
+  TEXT_DARK: '#333',
+  TEXT_SECONDARY: '#444',
+  TEXT_GRAY: '#666',
+  TEXT_GRAY_MEDIUM: '#777',
+  TEXT_GRAY_LIGHT: '#888',
+  TEXT_GRAY_LIGHTER: '#999',
+
+  BORDER: '#ccc',
+  BORDER_LIGHT: '#ddd',
+
+  ERROR: '#c00',
+  DANGER: '#ff4444',
+
+  SHADOW: '#000',
+
+  SHIMMER_BACKGROUND: '#eee',
+  SHIMMER_HIGHLIGHT: '#ddd',
+  SHIMMER_OVERLAY: 'rgba(255,255,255,0.5)',
+
+  ICON_RED: 'red',
+  WHITE: '#fff',
+
+  CAMERA_BUTTON_BACKGROUND: 'rgba(0,0,0,0.5)',
+} as const;

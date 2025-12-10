@@ -3,6 +3,7 @@ import { CameraView } from 'expo-camera';
 import { StyleSheet } from 'react-native';
 import { Ionicons } from '@expo/vector-icons';
 import { View, TouchableOpacity, Text, ActivityIndicator } from 'react-native';
+import { COLORS } from '../../../constants/colors';
 
 interface CameraViewProps {
   cameraRef: React.RefObject<CameraView| null>;
@@ -62,13 +63,13 @@ const styles = StyleSheet.create({
   cameraContainer: { flex: 1 },
   camera: { flex: 1 },
   cameraOverlay: { position: 'absolute', top: 0, left: 0, right: 0, bottom: 0, justifyContent: 'flex-start', alignItems: 'flex-end', padding: 16 },
-  flipButton: { backgroundColor: 'rgba(0,0,0,0.5)', borderRadius: 24, padding: 12 },
+  flipButton: { backgroundColor: COLORS.CAMERA_BUTTON_BACKGROUND, borderRadius: 24, padding: 12 },
   cameraControls: { position: 'absolute', bottom: 40, left: 0, right: 0, alignItems: 'center' },
-  readyText: { color: '#fff', fontSize: 12, fontWeight: '500', marginBottom: 12 },
-  captureButton: { width: 70, height: 70, borderRadius: 35, backgroundColor: 'white', justifyContent: 'center', alignItems: 'center', borderWidth: 4, borderColor: '#333' },
+  readyText: { color: COLORS.WHITE, fontSize: 12, fontWeight: '500', marginBottom: 12 },
+  captureButton: { width: 70, height: 70, borderRadius: 35, backgroundColor: 'white', justifyContent: 'center', alignItems: 'center', borderWidth: 4, borderColor: COLORS.TEXT_DARK },
   captureButtonDisabled: { opacity: 0.6 },
   captureButtonInner: { width: 60, height: 60, borderRadius: 30, backgroundColor: 'white' },
 
-  centerContainer: { flex: 1, justifyContent: 'center', alignItems: 'center', backgroundColor: '#1a1a1a', padding: 24 },
-  errorText: { color: '#999', fontSize: 14, textAlign: 'center', lineHeight: 20 },
+  centerContainer: { flex: 1, justifyContent: 'center', alignItems: 'center', backgroundColor: COLORS.BACKGROUND_DARK, padding: 24 },
+  errorText: { color: COLORS.TEXT_GRAY_LIGHTER, fontSize: 14, textAlign: 'center', lineHeight: 20 },
 });

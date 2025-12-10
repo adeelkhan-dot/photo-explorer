@@ -5,6 +5,7 @@ import Animated, { SlideInUp } from 'react-native-reanimated';
 import { Image } from 'expo-image';
 import { fetchCommentsForPhoto } from '../api/api';
 import { Comment, PicsumPhoto } from '../types/types';
+import { COLORS } from '../constants/colors';
 
 const { width } = Dimensions.get('window');
 
@@ -76,7 +77,7 @@ export default function PhotoDetailModal() {
 const styles = StyleSheet.create({
   container: { 
     flex: 1, 
-    backgroundColor: '#fff',  
+    backgroundColor: COLORS.WHITE,  
     padding: 16 
   },
   loadingContainer: {
@@ -89,7 +90,7 @@ const styles = StyleSheet.create({
     marginBottom: 12,
   },
   closeButtonText: {
-    color: '#000',
+    color: COLORS.SHADOW,
     fontSize: 18,
   },
   image: {
@@ -98,20 +99,20 @@ const styles = StyleSheet.create({
     borderRadius: 12,
   },
   authorText: {
-    color: '#000',
+    color: COLORS.SHADOW,
     fontSize: 16,
     marginTop: 8,
   },
   comment: { 
     paddingVertical: 6, 
-    borderBottomColor: '#ccc',
+    borderBottomColor: COLORS.BORDER,
     borderBottomWidth: 1 
   },
   commentName: { 
-    color: '#000',            
+    color: COLORS.SHADOW,            
     fontWeight: '600' 
   },
   commentBody: { 
-    color: '#444',              
+    color: COLORS.TEXT_SECONDARY,              
   },
 });

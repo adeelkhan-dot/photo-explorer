@@ -5,6 +5,7 @@ import CameraTabs from './components/CameraTabs';
 import CameraViewSection from './components/CameraViewSection';
 import GallerySection from './components/GallerySection';
 import CapturedPhotosList from './components/CapturedPhotosList';
+import { COLORS } from '../../constants/colors';
 
 export default function CameraScreen() {
   const {
@@ -31,6 +32,6 @@ export default function CameraScreen() {
 }
 
 const styles = StyleSheet.create({
-  container: { flex: 1, backgroundColor: '#000' },
+  container: { flex: 1, backgroundColor: COLORS.SHADOW },
   contentContainer: { flex: 1, marginBottom: 10 },
 });

@@ -3,6 +3,7 @@ import { View, TouchableOpacity, Text, StyleSheet } from "react-native";
 import Animated, { FadeInUp } from "react-native-reanimated";
 import { Image } from "expo-image";
 import { PicsumPhoto } from "../../types/types";
+import { COLORS } from "../../constants/colors";
 
 type Props = {
   item: PicsumPhoto;
@@ -36,11 +37,11 @@ function SearchResultItem({ item, index, onPress }: Props) {
 const styles = StyleSheet.create({
   container: {
     marginBottom: 16,
-    backgroundColor: "#fff",
+    backgroundColor: COLORS.WHITE,
     borderRadius: 14,
     overflow: "hidden",
     elevation: 3,
-    shadowColor: "#000",
+    shadowColor: COLORS.SHADOW,
     shadowOffset: { width: 0, height: 2 },
     shadowOpacity: 0.1,
     shadowRadius: 4,
@@ -58,7 +59,7 @@ const styles = StyleSheet.create({
   },
   id: {
     marginTop: 3,
-    color: "#777",
+    color: COLORS.TEXT_GRAY_MEDIUM,
     fontSize: 14,
   },
 });
