@@ -3,6 +3,7 @@ import { View, Text, TouchableOpacity, StyleSheet, ScrollView } from "react-nati
 import { useNavigation } from "@react-navigation/native";
 import { NativeStackNavigationProp } from "@react-navigation/native-stack";
 import { AdvanceStackParamList } from "./AdvanceStack";
+import { COLORS } from "../../constants/colors";
 
 type Nav = NativeStackNavigationProp<AdvanceStackParamList>;
 
@@ -42,7 +43,7 @@ const styles = StyleSheet.create({
   button: {
     padding: 18,
     borderRadius: 10,
-    backgroundColor: "#007bff",
+    backgroundColor: COLORS.PRIMARY,
     marginBottom: 12,
   },
   buttonText: { color: "white", fontSize: 16, fontWeight: "600" },

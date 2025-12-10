@@ -1,6 +1,7 @@
 import React, { useState } from 'react';
 import { View, Text, Button, StyleSheet } from 'react-native';
 import Animated, { SlideInUp, SlideInDown, FadeOut } from 'react-native-reanimated';
+import { COLORS } from '../../constants/colors';
 
 export default function ParallelModalsr() {
   const [modalA, setModalA] = useState(false);
@@ -35,7 +36,7 @@ const styles = StyleSheet.create({
     top: 50,
     width: '80%',
     padding: 20,
-    backgroundColor: '#fff',
+    backgroundColor: COLORS.WHITE,
     borderRadius: 12,
     elevation: 10,
   },
@@ -44,7 +45,7 @@ const styles = StyleSheet.create({
     bottom: 50,
     width: '80%',
     padding: 20,
-    backgroundColor: '#fff',
+    backgroundColor: COLORS.WHITE,
     borderRadius: 12,
     elevation: 10,
   },

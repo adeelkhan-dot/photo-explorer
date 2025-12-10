@@ -1,6 +1,7 @@
 import { useEffect } from 'react';
 import { View, StyleSheet } from 'react-native';
 import Animated, { useSharedValue, useAnimatedStyle, withTiming, withRepeat } from 'react-native-reanimated';
+import { COLORS } from '../../constants/colors';
 
 export default function Loader() {
   const opacity = useSharedValue(0.3);
@@ -34,5 +35,5 @@ export default function Loader() {
 
 const styles = StyleSheet.create({
   container: { flex: 1, justifyContent: 'center', alignItems: 'center' },
-  loader: { width: 50, height: 50, borderRadius: 25, backgroundColor: '#007bff' },
+  loader: { width: 50, height: 50, borderRadius: 25, backgroundColor: COLORS.PRIMARY },
 });

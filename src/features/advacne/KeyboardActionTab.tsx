@@ -9,6 +9,7 @@ import {
   ScrollView,
   TouchableWithoutFeedback,
 } from 'react-native';
+import { COLORS } from '../../constants/colors';
 
 export default function KeyboardActionTab() {
   const [text, setText] = useState('');
@@ -87,23 +88,23 @@ const styles = StyleSheet.create({
     borderWidth: 1,
     borderRadius: 8,
     paddingHorizontal: 10,
-    borderColor: '#ccc',
-    backgroundColor: '#fff',
+    borderColor: COLORS.BORDER,
+    backgroundColor: COLORS.WHITE,
     marginHorizontal: 10
   },
   tab: {
     position: 'absolute',
     left: 0,
     right: 0,
-    backgroundColor: '#eee',
+    backgroundColor:COLORS.SHIMMER_BACKGROUND,
     borderTopWidth: 1,
-    borderColor: '#ddd',
+    borderColor: COLORS.BORDER_LIGHT,
     justifyContent: 'center',
   },
   button: {
     paddingVertical: 10,
     paddingHorizontal: 14,
-    backgroundColor: '#007AFF',
+    backgroundColor: COLORS.PRIMARY_IOS,
     marginRight: 10,
     borderRadius: 8,
   },

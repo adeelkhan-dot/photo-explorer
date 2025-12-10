@@ -1,6 +1,7 @@
 import React, { useState } from 'react';
 import { View, TextInput, Button, StyleSheet } from 'react-native';
 import { KeyboardAwareScrollView } from 'react-native-keyboard-aware-scroll-view';
+import { COLORS } from '../../constants/colors';
 
 export default function KeyboardAware() {
   const [values, setValues] = useState({ a: '', b: '', c: '',d:'',e:'' });
@@ -53,11 +54,9 @@ export default function KeyboardAware() {
 
 const styles = StyleSheet.create({
   container: { flexGrow: 1, justifyContent: 'center', padding: 20 },
-//   input: { width: '100%', borderWidth: 1, borderColor: '#ccc', padding: 10, marginBottom: 12, borderRadius: 8 },
    input: {
-
     height: 50,
-    borderColor: '#000000',
+    borderColor: COLORS.TEXT_PRIMARY,
     borderWidth: 1,
     marginBottom: 15,
     paddingHorizontal: 10,
@@ -69,66 +68,3 @@ const styles = StyleSheet.create({
     justifyContent: 'flex-end',
   },
 });
-
-
-
-// import React from 'react';
-// import { View, TextInput, StyleSheet, Text, Button } from 'react-native';
-// import { KeyboardAwareScrollView } from 'react-native-keyboard-aware-scroll-view';
-
-// const KeyboardAwareScrollViewComponent = () => {
-//   return (
-//     <KeyboardAwareScrollView
-//       style={{ flex: 1 }}
-//       contentContainerStyle={styles.contentContainer} // Important for flexGrow
-//       enableOnAndroid={true} // Enables support for Android
-//       extraHeight={75} // Adds extra space above the keyboard (optional)
-//     >
-//       <View style={styles.inner}>
-//         <Text style={styles.header}>Login</Text>
-//         <TextInput placeholder="Username" style={styles.textInput} />
-//         <TextInput placeholder="Password" style={styles.textInput} secureTextEntry={true} />
-//         <View style={styles.buttonContainer}>
-//           <Button title="Sign In" onPress={() => {}} />
-//         </View>
-        
-//         {/* Add more content to force scrolling */}
-//         <View style={{ height: 200 }} /> 
-//         <TextInput placeholder="Another Input" style={styles.textInput} />
-//         <View style={{ height: 200 }} />
-//         <TextInput placeholder="Last Input" style={styles.textInput} />
-//       </View>
-//     </KeyboardAwareScrollView>
-//   );
-// };
-
-// const styles = StyleSheet.create({
-//   contentContainer: {
-//     flexGrow: 1, // Ensures content can grow and scroll
-//     justifyContent: 'center',
-//     padding: 20,
-//   },
-//   inner: {
-//     padding: 24,
-//     flex: 1,
-//     justifyContent: 'flex-end',
-//   },
-//   header: {
-//     fontSize: 36,
-//     marginBottom: 48,
-//     textAlign: 'center',
-//   },
-//   textInput: {
-//     height: 50,
-//     borderColor: '#000000',
-//     borderWidth: 1,
-//     marginBottom: 15,
-//     paddingHorizontal: 10,
-//     borderRadius: 5,
-//   },
-//   buttonContainer: {
-//     marginTop: 12,
-//   },
-// });
-
-// export default KeyboardAwareScrollViewComponent;

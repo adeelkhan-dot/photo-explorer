@@ -1,6 +1,7 @@
 import React, { useState } from 'react';
 import { View, Text, Button, StyleSheet } from 'react-native';
 import Animated, { FadeInUp, FadeOutDown } from 'react-native-reanimated';
+import { COLORS } from '../../constants/colors';
 
 export default function CardAnimations() {
   const [showCard, setShowCard] = useState(true);
@@ -33,12 +34,12 @@ const styles = StyleSheet.create({
     top: 100,              
     width: '80%',
     padding: 20,
-    backgroundColor: '#007bff',
+    backgroundColor:COLORS.PRIMARY,
     borderRadius: 12,
     alignItems: 'center',
   },
   cardText: {
     fontSize: 18,
-    color: '#fff',
+    color: COLORS.WHITE,
   },
 });

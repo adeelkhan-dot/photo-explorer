@@ -6,11 +6,12 @@ import Animated, { FadeIn } from 'react-native-reanimated';
 import AsyncStorage from '@react-native-async-storage/async-storage';
 import { useNavigation } from '@react-navigation/native';
 import { useProfile } from '../../hooks/useProfile';
+import { COLORS } from '../../constants/colors';
 
 function ProfileField({ label, value }: { label: string; value: string | number }) {
   return (
     <View style={{ marginVertical: 8 }}>
-      <Text style={{ fontSize: 12, color: "#999" }}>{label}</Text>
+      <Text style={{ fontSize: 12, color: COLORS.TEXT_GRAY_LIGHTER }}>{label}</Text>
       <Text style={{ fontSize: 16, fontWeight: "600" }}>{value}</Text>
     </View>
   );
@@ -54,10 +55,10 @@ export default function ProfileScreen() {
       </View>
 
       <View style={{
-        backgroundColor: "#fff",
+        backgroundColor: COLORS.WHITE,
         padding: 20,
         borderRadius: 12,
-        shadowColor: "#000",
+        shadowColor: COLORS.SHADOW,
         shadowOpacity: 0.1,
         shadowRadius: 6,
         elevation: 3,

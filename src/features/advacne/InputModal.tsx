@@ -1,6 +1,7 @@
 import React, { useState } from 'react';
 import { View, Button, TextInput, StyleSheet } from 'react-native';
 import Animated, { SlideInUp, FadeOut } from 'react-native-reanimated';
+import { COLORS } from '../../constants/colors';
 
 export default function InputModal() {
   const [visible, setVisible] = useState(false);
@@ -31,9 +32,9 @@ const styles = StyleSheet.create({
     top: '30%',
     width: '80%',
     padding: 20,
-    backgroundColor: '#fff',
+    backgroundColor: COLORS.WHITE,
     borderRadius: 12,
     elevation: 10,
   },
-  input: { borderWidth: 1, borderColor: '#ccc', padding: 10, borderRadius: 8, marginBottom: 12 },
+  input: { borderWidth: 1, borderColor: COLORS.BORDER, padding: 10, borderRadius: 8, marginBottom: 12 },
 });

@@ -3,6 +3,7 @@ import { View, TouchableOpacity, Text, StyleSheet } from "react-native";
 import Animated, { FadeInUp, Keyframe, Easing, LinearTransition } from "react-native-reanimated";
 import { Image } from "expo-image";
 import type { FavoriteItem as Favorite } from "../../context/FavoritesContext";
+import { COLORS } from "../../constants/colors";
 
 type Props = {
   item: Favorite;
@@ -51,7 +52,7 @@ export default function FavoriteItem({
 
       <View style={{ padding: 12 }}>
         <Text style={{ fontWeight: "600" }}>{item.author}</Text>
-        <Text style={{ color: "#888", marginTop: 4 }}>
+        <Text style={{ color: COLORS.TEXT_GRAY_LIGHT, marginTop: 4 }}>
           Added: {new Date(item.createdAt).toLocaleDateString()}
         </Text>
 
@@ -75,14 +76,14 @@ export default function FavoriteItem({
 const styles = StyleSheet.create({
   card: {
     marginBottom: 16,
-    backgroundColor: "#fff",
+    backgroundColor: COLORS.WHITE,
     borderRadius: 14,
     overflow: "hidden",
     elevation: 3,
   },
   removeButton: {
     marginTop: 10,
-    backgroundColor: "#ff4444",
+    backgroundColor:COLORS.DANGER,
     paddingVertical: 8,
     paddingHorizontal: 16,
     borderRadius: 999,

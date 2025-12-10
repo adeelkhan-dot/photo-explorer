@@ -1,6 +1,7 @@
 import React from 'react';
 import { View, Button, StyleSheet } from 'react-native';
 import Animated, { useSharedValue, withSpring, useAnimatedStyle } from 'react-native-reanimated';
+import { COLORS } from '../../constants/colors';
 
 export default function TopActionSheet() {
   const translateY = useSharedValue(-300);
@@ -42,7 +43,7 @@ const styles = StyleSheet.create({
     position: 'absolute',
     top: 0, // show at top
     width: '90%',
-    backgroundColor: '#fff',
+    backgroundColor: COLORS.WHITE,
     borderRadius: 12,
     padding: 20,
     elevation: 10,
