@@ -9,6 +9,7 @@ import Shimmer from "./Shimmer";
 import InputModal from "./InputModal";
 import KeyboardAware from "./KeyboardAware";
 import KeyboardActionTab from "./KeyboardActionTab";
+import { SCREEN_NAMES } from "../../constants/screen";
 
 
 export type AdvanceStackParamList = {
@@ -29,18 +30,18 @@ export default function AdvanceStack() {
   return (
     <Stack.Navigator>
       <Stack.Screen
-        name="AdvanceScreen"
+        name={SCREEN_NAMES.ADVANCE_SCREEN}
         component={AdvanceScreen}
-        options={{ title: "Advance Concepts",headerShown: false }}
+        options={{headerShown: false }}
       />
-      <Stack.Screen name="ParallelModals" component={ParallelModals} />
-      <Stack.Screen name="CardAnimations" component={CardAnimations} />
-      <Stack.Screen name="ActionSheet" component={ActionSheet} />
-      <Stack.Screen name="Loader" component={Loader} />
-      <Stack.Screen name="Shimmer" component={Shimmer} />
-      <Stack.Screen name="InputModal" component={InputModal} />
-      <Stack.Screen name="KeyboardAware" component={KeyboardAware} />
-      <Stack.Screen name="KeyboardActionTab" component={KeyboardActionTab} />
+      <Stack.Screen name={SCREEN_NAMES.ADVANCE_PARALLEL_MODALS} component={ParallelModals} />
+      <Stack.Screen name={SCREEN_NAMES.ADVANCE_CARD_ANIMATIONS} component={CardAnimations} />
+      <Stack.Screen name={SCREEN_NAMES.ADVANCE_ACTION_SHEET} component={ActionSheet} />
+      <Stack.Screen name={SCREEN_NAMES.ADVANCE_LOADER} component={Loader} />
+      <Stack.Screen name={SCREEN_NAMES.ADVANCE_SHIMMER} component={Shimmer} />
+      <Stack.Screen name={SCREEN_NAMES.ADVANCE_INPUT_MODAL} component={InputModal} />
+      <Stack.Screen name={SCREEN_NAMES.ADVANCE_KEYBOARD_AWARE} component={KeyboardAware} />
+      <Stack.Screen name={SCREEN_NAMES.ADVANCE_KEYBOARD_ACTION_TAB} component={KeyboardActionTab} />
     </Stack.Navigator>
   );
 }
