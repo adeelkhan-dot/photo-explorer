@@ -4,6 +4,7 @@ import Animated, { FadeInUp, Layout, LinearTransition } from 'react-native-reani
 import { useNavigation } from '@react-navigation/native';
 import FeedItem from './FeedItems';
 import { useFeed } from '../../hooks/useFeed';
+import { SCREEN_NAMES } from '../../constants/screen';
 
 const { width } = Dimensions.get('window');
 
@@ -27,7 +28,7 @@ export default function FeedScreen() {
             <FeedItem
                 photo={item}
                 size={width / 2 - 8}
-                onPress={() => navigation.navigate('FeedDetailModal', { photo: item })}
+                onPress={() => navigation.navigate(SCREEN_NAMES.FEED_DETAIL_MODAL, { photo: item })}
             />
         </Animated.View>
     );

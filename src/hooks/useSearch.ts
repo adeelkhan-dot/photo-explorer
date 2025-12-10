@@ -1,5 +1,6 @@
 import { useEffect, useRef, useState, useCallback } from "react";
-import { fetchPicsum, PicsumPhoto } from "../api/api";
+import { fetchPicsum } from "../api/api";
+import { PicsumPhoto } from "../types/types";
 
 export function useSearch() {
   const [query, setQuery] = useState("");

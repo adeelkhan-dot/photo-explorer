@@ -1,6 +1,7 @@
 import { createNativeStackNavigator } from '@react-navigation/native-stack';
 import SearchScreen from './SearchScreen';
 import PhotoDetailModal from '../../components/PhotoDetailModal';
+import { SCREEN_NAMES } from '../../constants/screen';
 
 export type SearchStackParamList = {
   SearchMain: undefined;
@@ -13,7 +14,7 @@ export default function SearchStack() {
   return (
     <Stack.Navigator>
       <Stack.Screen
-        name="SearchMain"
+        name={SCREEN_NAMES.SEARCH_MAIN}
         component={SearchScreen}
         options={{
           title: "Search",
@@ -21,7 +22,7 @@ export default function SearchStack() {
         }}
       />
       <Stack.Screen 
-        name="PhotoDetailModal" 
+        name={SCREEN_NAMES.PHOTO_DETAIL_MODAL} 
         component={PhotoDetailModal} 
         options={{ 
           presentation: 'modal', 

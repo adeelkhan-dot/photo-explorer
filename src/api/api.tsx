@@ -1,13 +1,5 @@
 import axios from 'axios';
-
-export type PicsumPhoto = {
-  id: string;
-  author: string;
-  width: number;
-  height: number;
-  url: string;
-  download_url: string;
-};
+import { PicsumPhoto } from '../types/types';
 
 const picsum = axios.create({ baseURL: 'https://picsum.photos' });
 const jsonplaceholder = axios.create({ baseURL: 'https://jsonplaceholder.typicode.com' });
