@@ -12,7 +12,9 @@ import CameraStack from './features/camera/CameraStack';
 import {
   Text, StyleSheet
 } from 'react-native';
+import AdvanceStack from './features/advacne/AdvanceStack';
 import { SCREEN_NAMES } from './constants/screen';
+import { COLORS } from './constants/colors';
 
 
 const Tab = createBottomTabNavigator();
@@ -51,6 +53,7 @@ export default function App() {
                   <Tab.Screen name={SCREEN_NAMES.CAMERA} component={CameraStack} />
                   <Tab.Screen name={SCREEN_NAMES.FAVORITES} component={FavoritesStack} />
                   <Tab.Screen name={SCREEN_NAMES.PROFILE} component={ProfileStack} />
+                  <Tab.Screen name={SCREEN_NAMES.ADVANCE} component={AdvanceStack} />
                 </Tab.Navigator>)}
               </RootStack.Screen>
             </RootStack.Navigator>
@@ -71,15 +74,15 @@ const styles = StyleSheet.create({
     left: 20,
     right: 20,
     elevation: 0,
-    backgroundColor: '#fff',
+    backgroundColor: COLORS.WHITE,
     borderRadius: 10,
     height: 45,
-    shadowColor: '#000',
+    shadowColor: COLORS.SHADOW,
     shadowOffset: { width: 0, height: 10 },
     shadowOpacity: 0.25,
     shadowRadius: 3.5,
     borderWidth: 1,
-    borderColor: '#ffffff',
+    borderColor:COLORS.BACKGROUND,
     justifyContent: 'center',
     alignItems: 'center',
     paddingBottom: 0,
@@ -95,7 +98,7 @@ const styles = StyleSheet.create({
     fontWeight: 'normal',
   },
   focusedTabLabel: {
-    color: '#007bff',
+    color:COLORS.PRIMARY,
     fontWeight: 'bold',
   },
 });
