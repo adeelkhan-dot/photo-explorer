@@ -7,6 +7,7 @@ import { useNavigation } from "@react-navigation/native";
 import { SCREEN_NAMES } from "../../constants/screen";
 import { FavoriteItemType, RootStackParamList } from "../../types/types";
 import { NativeStackNavigationProp } from "@react-navigation/native-stack";
+import { COLORS } from "../../constants/colors";
 
 type Nav = NativeStackNavigationProp<RootStackParamList>;
 
@@ -43,7 +44,7 @@ export default function FavoritesScreen() {
         style={{ flex: 1, justifyContent: "center", alignItems: "center" }}
       >
         <Text style={{ fontSize: 16, color: "#666" }}>No favorites yet</Text>
-        <Text style={{ marginTop: 4, color: "#999" }}>
+        <Text style={{ marginTop: 4, color:COLORS.TEXT_GRAY_LIGHTER }}>
           Add some from your Feed
         </Text>
       </Animated.View>

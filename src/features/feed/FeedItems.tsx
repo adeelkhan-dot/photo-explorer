@@ -5,6 +5,7 @@ import { PicsumPhoto } from './types';
 import Animated, { useSharedValue, withSpring, useAnimatedStyle } from 'react-native-reanimated';
 import { useFavorites } from '../../hooks/useFavorites';
 import { Ionicons } from '@expo/vector-icons';
+import { COLORS } from '../../constants/colors';
 
 type Props = { photo: PicsumPhoto; size: number; onPress: () => void };
 
@@ -32,9 +33,9 @@ export default function FeedItem({ photo, size, onPress }: Props) {
   return (
     <TouchableOpacity onPress={onPress} style={{ margin: 4 }}>
       <Image source={uri} style={{ width: size, height: size, borderRadius: 8 }} contentFit="cover" />
-      <Animated.View style={[styles.heartContainer, animatedStyle]}>
+      <Animated.View style={[styles.heartContainer, animatedStyle]} testID="heart-animation">
         <TouchableOpacity onPress={toggleLike}>
-          <Ionicons name={liked ? 'heart' : 'heart-outline'} size={24} color={liked ? 'red' : 'white'} />
+          <Ionicons name={liked ? 'heart' : 'heart-outline'} size={24} color={liked ? COLORS.ICON_RED : COLORS.WHITE} />
         </TouchableOpacity>
       </Animated.View>
     </TouchableOpacity>
